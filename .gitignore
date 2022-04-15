@@ -105,8 +105,9 @@ dist
 
 # Ignore MAC files 
 .DS_Store
-._index.html
-._script.js
-._style.css
-._utils
-._package.json
+._*
+# ._index.html
+# ._script.js
+# ._style.css
+# ._utils
+# ._package.json
