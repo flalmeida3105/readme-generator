@@ -1,20 +1,47 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license == "None") {
+    return "";
+  } else {
+    // the URL uses dash as separator, so to avoid conflicts the dash it's replace with underscore for building license name
+    return `![License](https://img.shields.io/badge/License-${license.replace(/-/g,"%5F")}-orange.svg?style=plastic&logo=appveyor)`
+  }
+}
 
-// TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license == "None") {
+    return "";
+  } else {
+    return `https://api.github.com/licenses/${license}`
+  }
 
-// TODO: Create a function that returns the license section of README
+}
+
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license == "None") {
+    return "";
+  } else {
+    return `## License\n ${renderLicenseLink(license)}`;
+  }
+}
 
-// TODO: Create a function to generate markdown for README
+//  if there is no demo link, create the Demo Section letting the user know about it.
+function renderDemoSection(liveDemo) {
+  if (liveDemo === null || liveDemo === "" || liveDemo === "undefined") {
+    return `## Live Demo\n No live demo at the moment!`;
+  } else {
+    return `## Live Demo\n <img src="assets/images/${liveDemo}.gif" width="550" height="500">`;
+  }
+}
+
+
+// Generate markdown for README
 function generateMarkdown(data) {
   return `
 # ${data.title} \n
-
+${renderLicenseBadge(data.license)}
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -24,7 +51,7 @@ function generateMarkdown(data) {
 * [Setup](#setup)
 * [Usage](#usage)
 * [Author](#author)
-* [Contact](#Contact) 
+* [Contact](#Contact)
 
 ## Purpose
 ${data.description} \n
@@ -42,8 +69,7 @@ ${data.gitHubLink} \n
 The following languages were used to build this project. \n
 * ${data.languages} \n
 
-## live Demo
-${data.liveDemo} \n
+${renderDemoSection(data.liveDemo)} \n
 
 ## Setup
 Please follow the step by step below to implement this project. \n
@@ -59,6 +85,7 @@ This application was created by ${data.author}
 ## Contact
 If you have any question, contact the author ${data.author} at https://github.com/${data.contact}
 
+${renderLicenseSection(data.license)}
 `;
 }
 

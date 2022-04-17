@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Required packages needed for this application
 const inquirer = require('inquirer');
 const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Create an array of questions for user input
 const promptQuestions = () => {
 
     return inquirer.prompt([
@@ -21,6 +21,29 @@ const promptQuestions = () => {
             }
         },
         {
+            type: "list",
+            name: "license",
+            message: "What license type does your project use? (Optional)\n",
+            choices: [
+                "AGPL-3.0",
+                "Apache-2.0",
+                "BSD-2-Clause",
+                "BSD-3-Clause",
+                "BSL-1.0",
+                "CC0-1.0",
+                "CDDL-1.0",
+                "EPL-2.0",
+                "GPL-license",
+                "GPL-2.0",
+                "GPL-3.0",
+                "LGPL-license",
+                "LGPL-2.1",
+                "MIT",
+                "MPL-2.0",
+                "None",
+            ],
+        },
+        {
             type: 'input',
             name: 'description',
             message: 'Provide a brief description of the project (Required)\n',
@@ -36,7 +59,15 @@ const promptQuestions = () => {
         {
             type: "input",
             name: "motivation",
-            message: "What was your motivation in building this project? (Optional)\n",
+            message: "What was your motivation in building this project? (Required)\n",
+            validate: motivation => {
+                if (motivation) {
+                    return true;
+                } else {
+                    console.log('Add a brief statement about what motivated you to create this app!');
+                    return false;
+                }
+            }
         },
         {
             type: "input",
@@ -74,26 +105,11 @@ const promptQuestions = () => {
                 ' Bootstrap', 
                 ' Node'
             ],
-            validate: languageInput => {
-                if (languageInput) {
-                    return true;
-                } else {
-                    console.log('You need to enter the language used to build the project!');
-                    return false;
-                }
-            }
         },
         {
             type: "input",
             name: "liveDemo",
-            message: "Enter the URL for your live demo.\n",
-            validate: liveDemoInput => {
-                if (liveDemoInput) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+            message: "Enter your live demo file's name! (Optional)\n Note: Your GIF file must exists under assets/images.\n\n",
         },
         {
             type: "input",
@@ -150,29 +166,20 @@ const promptQuestions = () => {
     ])
 };
    
-// TODO: Create a function to write README file
-
+// Write README file
 function writeToFile(res) { 
-    fs.writeFile('./README2.md', res, (err) => {
+    fs.writeFile('./dist/README.md', res, (err) => {
         if (err) { 
             console.log(err)
         } 
     })
 };
 
-// TODO: Create a function to initialize app
+// initiate the user prompts
 function init() {
     promptQuestions()
-    // .then(data => console.log(data))
-    // .then(writeFile)
-    // .then(installStepsData => {
-    //     return generateMarkdown(installStepsData)
-    // })
     .then(res => generateMarkdown(res))
     .then(res => writeToFile(res))
-    // .then((data) => { return writeToFile(data).toString; })
-    // .catch((err) => console.log(err));
-    // .then(writeToFile)
 }
 // Function call to initialize app
 init();
