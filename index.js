@@ -127,7 +127,7 @@ const promptQuestions = () => {
         {
             type: "input",
             name: "usageProcess",
-            message: `How to use the application? (Optional)\n\n ####### use <br> to break lines in the instruction ####### \n Sample: (step 1 <br> Step 2):\n`,
+            message: `How to use the application? (Required)\n\n ####### use <br> to break lines in the instruction ####### \n Sample: (step 1 <br> Step 2):\n`,
             validate: usageProcess => {
                 if (usageProcess) {
                     return true;
