@@ -38,7 +38,7 @@ The following languages were used to build this project.
 
 
 ## Live Demo
- <img src="../assets/images/mydemo.gif" width="500" height="300"> 
+ <img src="assets/images/mydemo.gif" width="500" height="300"> 
 
 ## Setup
 Please follow the step by step below to implement this project. 
