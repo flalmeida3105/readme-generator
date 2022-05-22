@@ -103,7 +103,8 @@ const promptQuestions = () => {
                 ' ES6',
                 ' jQuery', 
                 ' Bootstrap', 
-                ' Node'
+                ' Node',
+                ' MySql'
             ],
         },
         {

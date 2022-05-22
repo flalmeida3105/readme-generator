@@ -1,5 +1,5 @@
 
-# A Readme Generator 
+# A note taker 
 
 ![License](https://img.shields.io/badge/License-MIT-orange.svg?style=plastic&logo=appveyor)
 
@@ -14,13 +14,13 @@
 * [Contact](#Contact)
 
 ## Purpose
-A quick application that will generate README.md files for you. 
+A quick application that will help you to keep track of your daily tasks. 
 
 
 ## General Information
-None of the current solutions available in the marketing provides a wide set of questions and licenses to choose from. 
+Simple and clean application that allows the user to add daily tasks, which will help to keep track of their duties. 
 
-This application was built to be one of the most complete README files generator based on users' input. 
+ 
 
  
 
@@ -28,28 +28,29 @@ This application was built to be one of the most complete README files generator
 ## Project Website
 Follow the link below for further details about the project 
 
-https://github.com/flalmeida3105/readme-generator 
+https://github.com/flalmeida3105/note-taker 
 
 
 ## Built With
 The following languages were used to build this project. 
 
-*  JavaScript, Node 
+*  JavaScript, HTML, CSS, ES6, Node 
 
 
 ## Live Demo
- <img src="../assets/images/mydemo.gif" width="500" height="300"> 
+ <img src="../assets/images/mydemo.gif" width="550" height="500"> 
+
 
 ## Setup
 Please follow the step by step below to implement this project. 
 
-Step1: Clone the readme-generator repo from https://github.com/flalmeida3105/readme-generator to your local computer. <br> Step2: Navigate to the application's root folder. <br> Step3: Type npm init -y. <br> Step4: Type npm install inquirer. 
+Step1: Clone the note-taker repo from https://github.com/flalmeida3105/note-taker to your local computer. <br> Step2: Navigate to the application's root folder. <br> Step3: Type npm init -y. <br> Step4: Type npm install. <br>  
 
 
 ## Usage
 Please follow the step by step below to use this application. 
 
-From the root of your project, run node index.js, answer all the questions presented and enjoy the README file created by the application. The saved README.md file will be created under DIST Folder. 
+Using your prefered browser, open the https://note-taker-fa.herokuapp.com/notes URL to access the Production environment, or run node server.js locally, to initiate a local server instance, then open http://localhost:3001/ for testing and development.  
 
 
 ## Author
