@@ -104,7 +104,11 @@ const promptQuestions = () => {
                 ' jQuery', 
                 ' Bootstrap', 
                 ' Node',
-                ' MySql'
+                ' MySql',
+                ' Tailwinds',
+                ' Charts',
+                ' Handlebars',
+                ' Sequelize',
             ],
         },
         {
